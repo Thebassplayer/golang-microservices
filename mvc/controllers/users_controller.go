@@ -23,7 +23,6 @@ func GetUser(response http.ResponseWriter, request *http.Request) {
 		}
 
 		jsonValue, _ := json.Marshal(apiErr)
-		// Handle the error and return to the client
 		response.Header().Set("Content-Type", "application/json")
 		response.WriteHeader(apiErr.StatusCode)
 		response.Write([]byte(jsonValue))

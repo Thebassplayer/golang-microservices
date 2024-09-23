@@ -36,14 +36,12 @@ func GetUser(response http.ResponseWriter, request *http.Request) {
 
 	if apiErr != nil {
 		jsonValue, _ := json.Marshal(apiErr)
-		// Handle the error and return to the client
 		response.Header().Set("Content-Type", "application/json")
 		response.WriteHeader(apiErr.StatusCode)
 		response.Write([]byte(jsonValue))
 		return
 	}
 
-	// Return user to the client
 	jsonValue, _ := json.Marshal(user)
 	response.Header().Set("Content-Type", "application/json")
 	response.Write(jsonValue)

@@ -16,8 +16,9 @@ func GetUser(response http.ResponseWriter, request *http.Request) {
 
 	if err != nil {
 		// Handle the error and return to the client
-		response.WriteHeader(http.StatusNotFound)
-		response.Write([]byte("User Id must be a number"))
+		response.Header().Set("Content-Type", "application/json")
+		response.WriteHeader(http.StatusBadRequest)
+		response.Write([]byte(`{"message": "user_id must be a number"}`))
 		return
 	}
 
@@ -27,8 +28,9 @@ func GetUser(response http.ResponseWriter, request *http.Request) {
 
 	if err != nil {
 		// Handle the error and return to the client
+		response.Header().Set("Content-Type", "application/json")
 		response.WriteHeader(http.StatusNotFound)
-		response.Write([]byte(err.Error()))
+		response.Write([]byte(`{"message": "` + err.Error() + `"}`))
 		return
 	}
 

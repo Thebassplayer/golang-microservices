@@ -2,15 +2,15 @@ package app
 
 import (
 	"net/http"
+
+	"github.com/thebassplayer/golang-microservices/mvc/controllers"
 )
 
 func StartApp() {
-	http.HandleFunc("/hello", func(writer http.ResponseWriter, request *http.Request) {
-		writer.Write([]byte("Hello World!"))
-	})
+	http.HandleFunc("/users", controllers.GetUser)
 
-	err := http.ListenAndServe(":8080", nil) // Change the port if needed
-	if err != nil {
+	if err := http.ListenAndServe(":8080", nil); err != nil {
 		panic(err)
 	}
+
 }

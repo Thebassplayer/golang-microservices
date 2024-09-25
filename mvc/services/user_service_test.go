@@ -47,9 +47,13 @@ func TestGetUserNotFoundInDatabase(t *testing.T) {
 	assert.EqualValues(t, "User 0 not found", err.Message)
 }
 
-func TestGetUserNotError(t *testing.T) {
+func TestGetUserNoError(t *testing.T) {
 	// Initialization:
-
+	getUserFunction = func(userId int64) (*domain.User, *utils.ApplicationError) {
+		return &domain.User{
+			Id: 123,
+		}, nil
+	}
 	// Execution:
 	user, err := UserService.GetUser(123)
 

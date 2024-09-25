@@ -31,7 +31,7 @@ func GetUser(response http.ResponseWriter, request *http.Request) {
 
 	log.Printf("About to process user ID: %v", userId)
 
-	user, apiErr := services.GetUser(userId)
+	user, apiErr := services.UserService.GetUser(userId)
 
 	if apiErr != nil {
 		jsonValue, _ := json.Marshal(apiErr)

@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/thebassplayer/golang-microservices/src/api/clients/restclient"
 	"github.com/thebassplayer/golang-microservices/src/api/github"
@@ -31,7 +32,7 @@ func CreateRepo(accessToken string, request github.CreateRepoRequest) (*github.C
 	if err != nil {
 		log.Println(fmt.Sprintf("error when trying to create new repo in github: %s", err.Error()))
 		return nil, &github.GitHubErrorResponse{
-			Status:  http.StatusInternalServerError,
+			Status:  strconv.Itoa(http.StatusInternalServerError),
 			Message: err.Error(),
 		}
 	}
@@ -39,7 +40,7 @@ func CreateRepo(accessToken string, request github.CreateRepoRequest) (*github.C
 	bytes, err := io.ReadAll(response.Body)
 	if err != nil {
 		return nil, &github.GitHubErrorResponse{
-			Status:  http.StatusInternalServerError,
+			Status:  strconv.Itoa(http.StatusInternalServerError),
 			Message: "invalid response body",
 		}
 	}
@@ -50,11 +51,11 @@ func CreateRepo(accessToken string, request github.CreateRepoRequest) (*github.C
 		var errResponse github.GitHubErrorResponse
 		if err := json.Unmarshal(bytes, &errResponse); err != nil {
 			return nil, &github.GitHubErrorResponse{
-				Status:  http.StatusInternalServerError,
+				Status:  strconv.Itoa(http.StatusInternalServerError),
 				Message: "invalid json response body",
 			}
 		}
-		errResponse.Status = response.StatusCode
+		errResponse.Status = strconv.Itoa(response.StatusCode)
 		return nil, &errResponse
 	}
 
@@ -62,7 +63,7 @@ func CreateRepo(accessToken string, request github.CreateRepoRequest) (*github.C
 	if err := json.Unmarshal(bytes, &result); err != nil {
 		log.Println(fmt.Sprintf("error when trying to unmarshal create repo successful response: %s", err.Error()))
 		return nil, &github.GitHubErrorResponse{
-			Status:  http.StatusInternalServerError,
+			Status:  strconv.Itoa(http.StatusInternalServerError),
 			Message: "error when trying to unmarshal github create repo response",
 		}
 	}

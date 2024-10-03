@@ -24,6 +24,13 @@ func (a *apiError) Error() string {
 	return a.error
 }
 
+func NewApiError(statusCode int, message string) ApiError {
+	return &apiError{
+		status:  statusCode,
+		message: message,
+	}
+}
+
 func NewNotFoundApiError(message string) ApiError {
 	return &apiError{
 		status:  http.StatusNotFound,

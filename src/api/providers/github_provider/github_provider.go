@@ -9,7 +9,7 @@ import (
 	"strconv"
 
 	"github.com/thebassplayer/golang-microservices/src/api/clients/restclient"
-	"github.com/thebassplayer/golang-microservices/src/api/github"
+	"github.com/thebassplayer/golang-microservices/src/api/domain/github"
 )
 
 const (

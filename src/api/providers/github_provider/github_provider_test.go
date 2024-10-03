@@ -11,7 +11,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/thebassplayer/golang-microservices/src/api/clients/restclient"
-	"github.com/thebassplayer/golang-microservices/src/api/github"
+	"github.com/thebassplayer/golang-microservices/src/api/domain/github"
 )
 
 func TestMain(m *testing.M) {

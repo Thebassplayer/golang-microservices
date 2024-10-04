@@ -37,7 +37,7 @@ func (s *repoService) CreateRepo(input repositories.CreateRepoRequest) (*reposit
 		Private:     false,
 	}
 
-	response, err := github_provider.CreateRepo(config.GetGithugAccessToken(), request)
+	response, err := github_provider.CreateRepo(config.GetGithubAccessToken(), request)
 
 	if err != nil {
 		statusCode, convErr := strconv.Atoi(err.Status)

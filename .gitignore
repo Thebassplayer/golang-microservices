@@ -25,3 +25,4 @@ go.work
 
 * ENV
 * .env
+repo-microservice/src/api/.env

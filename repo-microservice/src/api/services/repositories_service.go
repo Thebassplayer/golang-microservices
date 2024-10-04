@@ -4,11 +4,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/thebassplayer/golang-microservices/src/api/config"
-	"github.com/thebassplayer/golang-microservices/src/api/domain/github"
-	"github.com/thebassplayer/golang-microservices/src/api/domain/repositories"
-	"github.com/thebassplayer/golang-microservices/src/api/providers/github_provider"
-	"github.com/thebassplayer/golang-microservices/src/api/utils/errors"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/config"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/domain/github"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/domain/repositories"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/providers/github_provider"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/utils/errors"
 )
 
 type repoService struct{}

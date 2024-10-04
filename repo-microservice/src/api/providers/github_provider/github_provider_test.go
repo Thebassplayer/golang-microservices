@@ -10,8 +10,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/thebassplayer/golang-microservices/src/api/clients/restclient"
-	"github.com/thebassplayer/golang-microservices/src/api/domain/github"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/clients/restclient"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/domain/github"
 )
 
 func TestMain(m *testing.M) {

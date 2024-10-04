@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/thebassplayer/golang-microservices/src/api/clients/restclient"
-	"github.com/thebassplayer/golang-microservices/src/api/domain/github"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/clients/restclient"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/domain/github"
 )
 
 const (

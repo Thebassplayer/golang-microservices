@@ -4,9 +4,9 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/thebassplayer/golang-microservices/src/api/domain/repositories"
-	"github.com/thebassplayer/golang-microservices/src/api/services"
-	"github.com/thebassplayer/golang-microservices/src/api/utils/errors"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/domain/repositories"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/services"
+	"github.com/thebassplayer/golang-microservices/repo-microservice/src/api/utils/errors"
 )
 
 func CreateRepo(c *gin.Context) {

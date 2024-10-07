@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	apiGithubAccessToken = "SECRET_GITHUB_ACCESS_TOKEN"
+	secretGithubAccessToken = "SECRET_GITHUB_ACCESS_TOKEN"
 )
 
 func init() {
@@ -21,7 +21,7 @@ func init() {
 
 func GetGithubAccessToken() string {
 	// Return the environment variable when needed
-	token := os.Getenv(apiGithubAccessToken)
+	token := os.Getenv(secretGithubAccessToken)
 	if token == "" {
 		log.Fatalf("Error: GitHub Access Token not set")
 	}

@@ -28,3 +28,4 @@ go.work
 repo-microservice/src/api/.env
 repo-microservice/src/api/services/.env
 repo-microservice/src/api/controllers/repositories/.env
+repo-microservice/src/api/config/.env

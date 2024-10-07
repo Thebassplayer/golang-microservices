@@ -43,7 +43,6 @@ func AddMockup(mock Mock) {
 
 func Post(url string, body interface{}, headers http.Header) (*http.Response, error) {
 	if enableMocks {
-		// TODO: Return local mocks without calling any external resource
 		mock := mocks[getMockId(http.MethodPost, url)]
 		if mock == nil {
 			return nil, errors.New("no mockup found for given request")

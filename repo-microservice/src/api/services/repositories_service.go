@@ -62,7 +62,7 @@ func (s *repoService) CreateRepos(requests []repositories.CreateRepoRequest) (re
 	defer close(output)
 
 	var wg sync.WaitGroup
-	go s.handleRepoResponse(&wg, input, output)
+	go s.handleRepoResults(&wg, input, output)
 
 	for _, currentRequest := range requests {
 		wg.Add(1)
@@ -93,7 +93,7 @@ func (s *repoService) CreateRepos(requests []repositories.CreateRepoRequest) (re
 	return result, nil
 }
 
-func (s *repoService) handleRepoResponse(wg *sync.WaitGroup, input chan repositories.CreateRepositoriesResult, output chan repositories.CreateReposResponse) {
+func (s *repoService) handleRepoResults(wg *sync.WaitGroup, input chan repositories.CreateRepositoriesResult, output chan repositories.CreateReposResponse) {
 	var results repositories.CreateReposResponse
 
 	for incomingEvent := range input {

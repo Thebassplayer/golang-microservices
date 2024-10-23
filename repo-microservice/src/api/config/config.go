@@ -9,6 +9,7 @@ import (
 
 const (
 	secretGithubAccessToken = "SECRET_GITHUB_ACCESS_TOKEN"
+	LogLevel                = "info"
 )
 
 func init() {
@@ -26,4 +27,8 @@ func GetGithubAccessToken() string {
 		log.Fatalf("Error: GitHub Access Token not set")
 	}
 	return token
+}
+
+func IsProduction() bool {
+	return os.Getenv("GO_ENVIRONMENT") == "production"
 }
